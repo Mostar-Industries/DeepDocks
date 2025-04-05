@@ -1,0 +1,825 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-04-05",
+  "description": "Foundational data for the DeepCAL++ Logistics Decision Support System",
+
+  "dataDefinitions": {
+    "shipmentRequest": {
+      "request_date_from_destination_country": {
+        "type": "string",
+        "format": "MM/DD/YYYY HH:MM:SS AM/PM",
+        "description": "Date and time when the shipment request was received from the destination country",
+        "example": "10/14/2024 14:03:00 PM"
+      },
+      "request_reference": {
+        "type": "string",
+        "format": "SR_YY-NNN_[Hub]_[Destination]",
+        "description": "Unique reference code for the shipment request",
+        "example": "SR_25-033_NBO hub_DR Congo"
+      },
+      "item_description": {
+        "type": "string",
+        "description": "Brief description of the items being shipped",
+        "example": "PPEs and Lab Supplies"
+      },
+      "item_category": {
+        "type": "string",
+        "description": "Category classification of the shipped items",
+        "example": "PPE",
+        "referenceTable": "itemCategories"
+      },
+      "origin_country": {
+        "type": "string",
+        "description": "Country of origin for the shipment",
+        "example": "Kenya"
+      },
+      "origin_latitude": {
+        "type": "number",
+        "format": "decimal degrees",
+        "description": "Latitude coordinates of the origin location",
+        "example": 36.990054
+      },
+      "origin_longitude": {
+        "type": "number",
+        "format": "decimal degrees",
+        "description": "Longitude coordinates of the origin location",
+        "example": 1.2404475
+      },
+      "destination_country": {
+        "type": "string",
+        "description": "Country of destination for the shipment",
+        "example": "DR Congo"
+      },
+      "destination_latitude": {
+        "type": "number",
+        "format": "decimal degrees",
+        "description": "Latitude coordinates of the destination location",
+        "example": 15.2726097
+      },
+      "destination_longitude": {
+        "type": "number",
+        "format": "decimal degrees",
+        "description": "Longitude coordinates of the destination location",
+        "example": 4.3161726
+      },
+      "carrier": {
+        "type": "string",
+        "description": "Name of the carrier or logistics provider selected for the shipment",
+        "example": "Other Agents",
+        "referenceTable": "carriers"
+      },
+      "carrier_cost": {
+        "type": "number",
+        "format": "USD",
+        "description": "Cost charged by the selected carrier",
+        "example": 0
+      },
+      "kuehne_nagel": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by Kuehne Nagel for the shipment",
+        "example": 798
+      },
+      "scan_global_logistics": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by Scan Global Logistics for the shipment",
+        "example": 0
+      },
+      "dhl_express": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by DHL Express for the shipment",
+        "example": 0
+      },
+      "dhl_global": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by DHL Global for the shipment",
+        "example": 0
+      },
+      "bwosi": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by Bwosi for the shipment",
+        "example": 0
+      },
+      "agl": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by AGL for the shipment",
+        "example": 0
+      },
+      "siginon": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by Siginon for the shipment",
+        "example": 0
+      },
+      "freight_in_time": {
+        "type": "number",
+        "format": "USD",
+        "description": "Quote provided by Freight in Time for the shipment",
+        "example": 990
+      },
+      "weight_kg": {
+        "type": "number",
+        "format": "kilograms",
+        "description": "Weight of the shipment in kilograms",
+        "example": 192.7
+      },
+      "volume_cbm": {
+        "type": "number",
+        "format": "cubic meters",
+        "description": "Volume of the shipment in cubic meters",
+        "example": 0.94
+      },
+      "emergency_grade": {
+        "type": "string",
+        "description": "Emergency classification grade of the shipment",
+        "example": "Grade 3",
+        "referenceTable": "emergencyGrades"
+      },
+      "initial_quote_awarded": {
+        "type": "string",
+        "description": "Carrier initially awarded the shipment based on quotes",
+        "example": "Kuehne Nagel"
+      },
+      "final_quote_awarded": {
+        "type": "string",
+        "description": "Carrier finally awarded the shipment after all considerations",
+        "example": "Kuehne Nagel"
+      },
+      "comments": {
+        "type": "string",
+        "description": "Additional notes or comments about the shipment",
+        "example": "Kuehne Nagel"
+      },
+      "date_of_arrival_destination": {
+        "type": "string",
+        "format": "DD-MMM-YY",
+        "description": "Date when the shipment arrived at the destination",
+        "example": "06-Mar-25"
+      },
+      "delivery_status": {
+        "type": "string",
+        "description": "Current status of the delivery",
+        "example": "Delivered",
+        "referenceTable": "deliveryStatuses"
+      },
+      "mode_of_shipment": {
+        "type": "string",
+        "description": "Transportation mode used for the shipment",
+        "example": "Air",
+        "referenceTable": "shipmentModes"
+      },
+      "greenlight_date": {
+        "type": "string",
+        "format": "MM/DD/YY HH:MM",
+        "description": "Date and time when the shipment was approved for processing",
+        "example": "10/15/24 13:20"
+      },
+      "date_of_collection": {
+        "type": "string",
+        "format": "DD-MMM-YY",
+        "description": "Date when the shipment was collected from the origin",
+        "example": "24-Feb-25"
+      }
+    },
+    "forwarderAnalysis": {
+      "forwarder_id": {
+        "type": "string",
+        "description": "Unique identifier for the logistics forwarder",
+        "example": "F001"
+      },
+      "forwarder_name": {
+        "type": "string",
+        "description": "Name of the logistics forwarder",
+        "example": "AfricaLogistics"
+      },
+      "origin": {
+        "type": "string",
+        "description": "Origin city of the shipment",
+        "example": "Lagos"
+      },
+      "destination": {
+        "type": "string",
+        "description": "Destination city of the shipment",
+        "example": "Cairo"
+      },
+      "ship_date": {
+        "type": "string",
+        "format": "YYYY-MM-DD",
+        "description": "Date when the shipment was sent",
+        "example": "2024-01-05"
+      },
+      "delivery_date": {
+        "type": "string",
+        "format": "YYYY-MM-DD",
+        "description": "Date when the shipment was delivered",
+        "example": "2024-01-19"
+      },
+      "transit_days": {
+        "type": "number",
+        "description": "Number of days the shipment was in transit",
+        "example": 14
+      },
+      "cost_usd": {
+        "type": "number",
+        "format": "USD",
+        "description": "Cost of the shipment in US dollars",
+        "example": 1250
+      },
+      "weight_kg": {
+        "type": "number",
+        "format": "kilograms",
+        "description": "Weight of the shipment in kilograms",
+        "example": 1200
+      },
+      "on_time": {
+        "type": "boolean",
+        "description": "Whether the shipment was delivered on time (1) or not (0)",
+        "example": 1
+      },
+      "reliability_score": {
+        "type": "number",
+        "format": "decimal (0-1)",
+        "description": "Reliability score of the forwarder",
+        "example": 0.85
+      }
+    },
+    "topsisAnalysis": {
+      "name": {
+        "type": "string",
+        "description": "Name of the logistics forwarder",
+        "example": "AfricaLogistics"
+      },
+      "rank": {
+        "type": "number",
+        "description": "Ranking position based on TOPSIS score",
+        "example": 1
+      },
+      "score": {
+        "type": "number",
+        "format": "decimal (0-1)",
+        "description": "TOPSIS score indicating overall performance",
+        "example": 0.723
+      },
+      "cost_factor": {
+        "type": "number",
+        "format": "decimal (0-1)",
+        "description": "Normalized cost factor (lower is better)",
+        "example": 0.35
+      },
+      "time_factor": {
+        "type": "number",
+        "format": "decimal (0-1)",
+        "description": "Normalized time factor (lower is better)",
+        "example": 0.42
+      },
+      "reliability_factor": {
+        "type": "number",
+        "format": "decimal (0-1)",
+        "description": "Normalized reliability factor (higher is better)",
+        "example": 0.85
+      },
+      "tracking_factor": {
+        "type": "number",
+        "format": "decimal (0-1)",
+        "description": "Normalized tracking availability factor (higher is better)",
+        "example": 1.0
+      }
+    }
+  },
+
+  "referenceTables": {
+    "carriers": [
+      { "id": "KN", "name": "Kuehne Nagel", "description": "Global logistics provider with extensive network" },
+      {
+        "id": "SGL",
+        "name": "Scan Global Logistics",
+        "description": "International freight forwarder specializing in complex logistics"
+      },
+      {
+        "id": "DHLE",
+        "name": "DHL Express",
+        "description": "Express delivery service with time-definite international shipments"
+      },
+      { "id": "DHLG", "name": "DHL Global", "description": "Global freight forwarding and supply chain solutions" },
+      { "id": "BWS", "name": "Bwosi", "description": "Regional logistics provider in Africa" },
+      { "id": "AGL", "name": "AGL", "description": "Africa-focused logistics and freight forwarding company" },
+      { "id": "SGN", "name": "Siginon", "description": "East African logistics provider" },
+      {
+        "id": "FIT",
+        "name": "Freight in Time",
+        "description": "Specialized logistics provider for time-sensitive shipments"
+      },
+      { "id": "OTH", "name": "Other Agents", "description": "Various other logistics providers" }
+    ],
+    "itemCategories": [
+      {
+        "id": "PPE",
+        "name": "Personal Protective Equipment",
+        "description": "Safety equipment including masks, gloves, and protective clothing"
+      },
+      { "id": "MED", "name": "Medical Supplies", "description": "General medical supplies and equipment" },
+      { "id": "PHARMA", "name": "Pharmaceuticals", "description": "Medicines and pharmaceutical products" },
+      { "id": "LAB", "name": "Laboratory Supplies", "description": "Equipment and supplies for laboratory use" },
+      { "id": "FOOD", "name": "Food and Nutrition", "description": "Food supplies and nutritional products" },
+      {
+        "id": "WASH",
+        "name": "Water, Sanitation, and Hygiene",
+        "description": "Supplies related to water, sanitation, and hygiene"
+      },
+      {
+        "id": "TECH",
+        "name": "Technology Equipment",
+        "description": "Computers, communication devices, and other technology"
+      },
+      {
+        "id": "INFRA",
+        "name": "Infrastructure Materials",
+        "description": "Materials for building and infrastructure development"
+      }
+    ],
+    "emergencyGrades": [
+      { "id": "G1", "name": "Grade 1", "description": "Highest emergency priority, requires immediate action" },
+      { "id": "G2", "name": "Grade 2", "description": "High emergency priority, requires expedited processing" },
+      { "id": "G3", "name": "Grade 3", "description": "Moderate emergency priority, requires timely processing" },
+      { "id": "G4", "name": "Grade 4", "description": "Low emergency priority, standard processing acceptable" },
+      { "id": "G5", "name": "Grade 5", "description": "No emergency priority, routine processing" }
+    ],
+    "deliveryStatuses": [
+      { "id": "REQ", "name": "Requested", "description": "Shipment has been requested but not yet processed" },
+      { "id": "APP", "name": "Approved", "description": "Shipment request has been approved" },
+      { "id": "PRO", "name": "Processing", "description": "Shipment is being processed for dispatch" },
+      { "id": "DIS", "name": "Dispatched", "description": "Shipment has been dispatched from origin" },
+      { "id": "TRA", "name": "In Transit", "description": "Shipment is in transit to destination" },
+      { "id": "ARR", "name": "Arrived", "description": "Shipment has arrived at destination country" },
+      { "id": "CUS", "name": "Customs", "description": "Shipment is undergoing customs clearance" },
+      { "id": "DEL", "name": "Delivered", "description": "Shipment has been delivered to final destination" },
+      { "id": "DEL", "name": "Delayed", "description": "Shipment is experiencing delays" },
+      { "id": "CAN", "name": "Cancelled", "description": "Shipment has been cancelled" }
+    ],
+    "shipmentModes": [
+      { "id": "AIR", "name": "Air", "description": "Shipment transported by aircraft" },
+      { "id": "SEA", "name": "Sea", "description": "Shipment transported by sea vessel" },
+      { "id": "ROA", "name": "Road", "description": "Shipment transported by road vehicle" },
+      { "id": "RAI", "name": "Rail", "description": "Shipment transported by rail" },
+      { "id": "MUL", "name": "Multimodal", "description": "Shipment using multiple transportation modes" }
+    ],
+    "africanRegions": [
+      {
+        "id": "WAF",
+        "name": "West Africa",
+        "countries": [
+          "Nigeria",
+          "Ghana",
+          "Senegal",
+          "Ivory Coast",
+          "Liberia",
+          "Sierra Leone",
+          "Guinea",
+          "Togo",
+          "Benin",
+          "Burkina Faso",
+          "Mali",
+          "Niger",
+          "Gambia",
+          "Guinea-Bissau",
+          "Cape Verde"
+        ]
+      },
+      {
+        "id": "EAF",
+        "name": "East Africa",
+        "countries": [
+          "Kenya",
+          "Tanzania",
+          "Uganda",
+          "Rwanda",
+          "Burundi",
+          "South Sudan",
+          "Ethiopia",
+          "Eritrea",
+          "Djibouti",
+          "Somalia"
+        ]
+      },
+      {
+        "id": "NAF",
+        "name": "North Africa",
+        "countries": ["Egypt", "Libya", "Tunisia", "Algeria", "Morocco", "Sudan"]
+      },
+      {
+        "id": "SAF",
+        "name": "Southern Africa",
+        "countries": [
+          "South Africa",
+          "Namibia",
+          "Botswana",
+          "Zimbabwe",
+          "Mozambique",
+          "Zambia",
+          "Malawi",
+          "Lesotho",
+          "Eswatini",
+          "Angola"
+        ]
+      },
+      {
+        "id": "CAF",
+        "name": "Central Africa",
+        "countries": [
+          "DR Congo",
+          "Cameroon",
+          "Central African Republic",
+          "Chad",
+          "Republic of Congo",
+          "Gabon",
+          "Equatorial Guinea",
+          "São Tomé and Príncipe"
+        ]
+      }
+    ]
+  },
+
+  "exampleDatasets": {
+    "shipmentRequests": [
+      {
+        "request_date_from_destination_country": "10/14/2024 14:03:00 PM",
+        "request_reference": "SR_25-033_NBO hub_DR Congo",
+        "item_description": "PPEs and Lab Supplies",
+        "item_category": "PPE",
+        "origin_country": "Kenya",
+        "origin_latitude": 36.990054,
+        "origin_longitude": 1.2404475,
+        "destination_country": "DR Congo",
+        "destination_latitude": 15.2726097,
+        "destination_longitude": 4.3161726,
+        "carrier": "Kuehne Nagel",
+        "carrier_cost": 798,
+        "kuehne_nagel": 798,
+        "scan_global_logistics": 0,
+        "dhl_express": 0,
+        "dhl_global": 0,
+        "bwosi": 0,
+        "agl": 0,
+        "siginon": 0,
+        "freight_in_time": 990,
+        "weight_kg": 192.7,
+        "volume_cbm": 0.94,
+        "emergency_grade": "Grade 3",
+        "initial_quote_awarded": "Kuehne Nagel",
+        "final_quote_awarded": "Kuehne Nagel",
+        "comments": "Kuehne Nagel offered the best value",
+        "date_of_arrival_destination": "06-Mar-25",
+        "delivery_status": "Delivered",
+        "mode_of_shipment": "Air",
+        "greenlight_date": "10/15/24 13:20",
+        "date_of_collection": "24-Feb-25"
+      },
+      {
+        "request_date_from_destination_country": "11/02/2024 09:15:00 AM",
+        "request_reference": "SR_25-047_ACC hub_Nigeria",
+        "item_description": "Medical Equipment",
+        "item_category": "MED",
+        "origin_country": "Ghana",
+        "origin_latitude": -0.1869644,
+        "origin_longitude": 5.6037168,
+        "destination_country": "Nigeria",
+        "destination_latitude": 9.0819983,
+        "destination_longitude": 8.6752768,
+        "carrier": "DHL Express",
+        "carrier_cost": 1250,
+        "kuehne_nagel": 1350,
+        "scan_global_logistics": 1420,
+        "dhl_express": 1250,
+        "dhl_global": 1300,
+        "bwosi": 0,
+        "agl": 1380,
+        "siginon": 0,
+        "freight_in_time": 0,
+        "weight_kg": 350.5,
+        "volume_cbm": 1.75,
+        "emergency_grade": "Grade 2",
+        "initial_quote_awarded": "DHL Express",
+        "final_quote_awarded": "DHL Express",
+        "comments": "Urgent medical equipment requiring expedited delivery",
+        "date_of_arrival_destination": "15-Nov-24",
+        "delivery_status": "Delivered",
+        "mode_of_shipment": "Air",
+        "greenlight_date": "11/03/24 10:30",
+        "date_of_collection": "05-Nov-24"
+      }
+    ],
+    "forwarderAnalysis": [
+      {
+        "forwarder_id": "F001",
+        "forwarder_name": "AfricaLogistics",
+        "origin": "Lagos",
+        "destination": "Cairo",
+        "ship_date": "2024-01-05",
+        "delivery_date": "2024-01-19",
+        "transit_days": 14,
+        "cost_usd": 1250,
+        "weight_kg": 1200,
+        "on_time": 1,
+        "reliability_score": 0.85
+      },
+      {
+        "forwarder_id": "F002",
+        "forwarder_name": "GlobalFreight",
+        "origin": "Lagos",
+        "destination": "Cairo",
+        "ship_date": "2024-01-08",
+        "delivery_date": "2024-01-28",
+        "transit_days": 20,
+        "cost_usd": 950,
+        "weight_kg": 1200,
+        "on_time": 0,
+        "reliability_score": 0.78
+      },
+      {
+        "forwarder_id": "F003",
+        "forwarder_name": "ExpressShip",
+        "origin": "Lagos",
+        "destination": "Cairo",
+        "ship_date": "2024-01-03",
+        "delivery_date": "2024-01-12",
+        "transit_days": 9,
+        "cost_usd": 1480,
+        "weight_kg": 1200,
+        "on_time": 1,
+        "reliability_score": 0.92
+      }
+    ],
+    "topsisResults": [
+      {
+        "name": "ExpressShip",
+        "rank": 1,
+        "score": 0.723,
+        "cost_factor": 0.45,
+        "time_factor": 0.25,
+        "reliability_factor": 0.92,
+        "tracking_factor": 1.0
+      },
+      {
+        "name": "AfricaLogistics",
+        "rank": 2,
+        "score": 0.651,
+        "cost_factor": 0.38,
+        "time_factor": 0.42,
+        "reliability_factor": 0.85,
+        "tracking_factor": 1.0
+      },
+      {
+        "name": "GlobalFreight",
+        "rank": 3,
+        "score": 0.487,
+        "cost_factor": 0.29,
+        "time_factor": 0.6,
+        "reliability_factor": 0.78,
+        "tracking_factor": 0.0
+      }
+    ]
+  },
+
+  "coreFunctionality": {
+    "description": "The DeepCAL++ system provides decision support for logistics operations in Africa, helping users select the optimal logistics forwarder based on multiple criteria including cost, delivery time, reliability, and service offerings.",
+    "components": [
+      {
+        "name": "TOPSIS Engine",
+        "description": "Core decision-making algorithm that evaluates and ranks logistics forwarders based on multiple weighted criteria",
+        "inputs": ["Forwarder data", "Criteria weights", "Shipment requirements"],
+        "outputs": ["Ranked forwarder list", "Performance scores", "Factor analysis"],
+        "location": "backend/core/deepcal_core.py"
+      },
+      {
+        "name": "Predictor Module",
+        "description": "Machine learning-based module that predicts delivery times and reliability based on historical data",
+        "inputs": ["Historical shipment data", "Route information", "Forwarder performance history"],
+        "outputs": ["Predicted delivery time", "Reliability score", "Confidence intervals"],
+        "location": "backend/core/deepcal_predictor.py"
+      },
+      {
+        "name": "Voice Interaction System",
+        "description": "Enables hands-free operation through voice commands and spoken responses",
+        "inputs": ["User voice commands", "Analysis results"],
+        "outputs": ["Spoken responses", "Voice confirmations"],
+        "location": "backend/voice/"
+      },
+      {
+        "name": "Commentary Engine",
+        "description": "Generates human-readable explanations of analysis results and recommendations",
+        "inputs": ["TOPSIS results", "Forwarder data"],
+        "outputs": ["Detailed commentary", "Voice-friendly summaries"],
+        "location": "backend/commentary/commentary.py"
+      },
+      {
+        "name": "Web Interface",
+        "description": "Streamlit-based user interface for inputting shipment details and viewing results",
+        "inputs": ["User inputs", "Analysis results"],
+        "outputs": ["Visual displays", "Interactive elements"],
+        "location": "frontend/app.py"
+      }
+    ],
+    "dataFlow": {
+      "description": "The system follows a sequential flow of data processing and analysis",
+      "steps": [
+        {
+          "step": 1,
+          "name": "Data Input",
+          "description": "User provides shipment details and requirements through the web interface or voice commands"
+        },
+        {
+          "step": 2,
+          "name": "Data Processing",
+          "description": "The system processes input data and retrieves relevant historical data for analysis"
+        },
+        {
+          "step": 3,
+          "name": "Forwarder Analysis",
+          "description": "The TOPSIS engine evaluates forwarders based on multiple criteria and calculates performance scores"
+        },
+        {
+          "step": 4,
+          "name": "Prediction Integration",
+          "description": "The predictor module enhances analysis with delivery time and reliability predictions"
+        },
+        {
+          "step": 5,
+          "name": "Result Generation",
+          "description": "The system generates ranked results and detailed factor analysis"
+        },
+        {
+          "step": 6,
+          "name": "Commentary Creation",
+          "description": "The commentary engine creates human-readable explanations of the results"
+        },
+        {
+          "step": 7,
+          "name": "Result Presentation",
+          "description": "Results are presented to the user through visual displays and optional voice feedback"
+        }
+      ],
+      "diagram": "See system_architecture.md for detailed flow diagrams"
+    }
+  },
+
+  "useCaseExamples": [
+    {
+      "title": "Emergency Medical Supply Shipment",
+      "scenario": "A humanitarian organization needs to ship emergency medical supplies from Nairobi, Kenya to Kinshasa, DR Congo as quickly as possible",
+      "inputs": {
+        "origin": "Nairobi, Kenya",
+        "destination": "Kinshasa, DR Congo",
+        "weight": 200,
+        "volume": 1.0,
+        "itemCategory": "MED",
+        "emergencyGrade": "Grade 1",
+        "costSensitivity": 0.2,
+        "timeSensitivity": 0.6,
+        "reliabilitySensitivity": 0.2
+      },
+      "process": [
+        "User inputs shipment details and emergency grade",
+        "System adjusts criteria weights to prioritize delivery time due to emergency nature",
+        "TOPSIS engine evaluates available forwarders with emphasis on speed",
+        "Predictor module provides estimated delivery times based on historical performance",
+        "System generates ranked list of forwarders optimized for emergency delivery"
+      ],
+      "expectedOutputs": {
+        "recommendedForwarder": "ExpressShip",
+        "justification": "ExpressShip offers the fastest delivery time (9 days) with high reliability (0.92), making it optimal for emergency shipments despite higher cost",
+        "alternativeOptions": [
+          {
+            "name": "DHL Express",
+            "advantage": "Extensive tracking capabilities",
+            "disadvantage": "Slightly longer delivery time"
+          },
+          {
+            "name": "AfricaLogistics",
+            "advantage": "Good balance of cost and speed",
+            "disadvantage": "Not as fast as ExpressShip"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cost-Optimized Bulk Shipment",
+      "scenario": "A manufacturing company needs to ship non-urgent raw materials from Johannesburg, South Africa to Lagos, Nigeria at the lowest possible cost",
+      "inputs": {
+        "origin": "Johannesburg, South Africa",
+        "destination": "Lagos, Nigeria",
+        "weight": 5000,
+        "volume": 15.0,
+        "itemCategory": "INFRA",
+        "emergencyGrade": "Grade 5",
+        "costSensitivity": 0.7,
+        "timeSensitivity": 0.1,
+        "reliabilitySensitivity": 0.2
+      },
+      "process": [
+        "User inputs shipment details with high cost sensitivity",
+        "System adjusts criteria weights to prioritize cost",
+        "TOPSIS engine evaluates available forwarders with emphasis on cost-effectiveness",
+        "Predictor module estimates delivery times and reliability for each option",
+        "System generates ranked list of forwarders optimized for cost"
+      ],
+      "expectedOutputs": {
+        "recommendedForwarder": "GlobalFreight",
+        "justification": "GlobalFreight offers the lowest cost ($950) for bulk shipments, and the longer delivery time is acceptable for non-urgent materials",
+        "alternativeOptions": [
+          {
+            "name": "TransAfrica",
+            "advantage": "Better reliability than GlobalFreight",
+            "disadvantage": "Moderately higher cost"
+          },
+          {
+            "name": "AfricaLogistics",
+            "advantage": "Faster delivery than GlobalFreight",
+            "disadvantage": "Significantly higher cost"
+          }
+        ]
+      }
+    },
+    {
+      "title": "High-Value Electronics Shipment",
+      "scenario": "A technology company needs to ship expensive electronic equipment from Cairo, Egypt to Accra, Ghana with high reliability and tracking capabilities",
+      "inputs": {
+        "origin": "Cairo, Egypt",
+        "destination": "Accra, Ghana",
+        "weight": 800,
+        "volume": 4.5,
+        "itemCategory": "TECH",
+        "emergencyGrade": "Grade 3",
+        "costSensitivity": 0.3,
+        "timeSensitivity": 0.3,
+        "reliabilitySensitivity": 0.4
+      },
+      "process": [
+        "User inputs shipment details with high reliability sensitivity",
+        "System adjusts criteria weights to prioritize reliability and tracking",
+        "TOPSIS engine evaluates available forwarders with emphasis on reliability",
+        "Predictor module assesses historical performance on similar high-value shipments",
+        "System generates ranked list of forwarders optimized for reliability"
+      ],
+      "expectedOutputs": {
+        "recommendedForwarder": "ExpressShip",
+        "justification": "ExpressShip offers the highest reliability score (0.92) and real-time tracking, making it ideal for high-value electronics despite higher cost",
+        "alternativeOptions": [
+          {
+            "name": "FastCargo",
+            "advantage": "Good balance of reliability and speed",
+            "disadvantage": "Limited tracking capabilities compared to ExpressShip"
+          },
+          {
+            "name": "AfricaLogistics",
+            "advantage": "Strong regional expertise in North and West Africa",
+            "disadvantage": "Slightly lower reliability score than ExpressShip"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Perishable Goods Transport",
+      "scenario": "A food distributor needs to ship perishable goods from Dar es Salaam, Tanzania to Addis Ababa, Ethiopia with a balance of speed and cost",
+      "inputs": {
+        "origin": "Dar es Salaam, Tanzania",
+        "destination": "Addis Ababa, Ethiopia",
+        "weight": 1500,
+        "volume": 8.2,
+        "itemCategory": "FOOD",
+        "emergencyGrade": "Grade 2",
+        "costSensitivity": 0.4,
+        "timeSensitivity": 0.4,
+        "reliabilitySensitivity": 0.2
+      },
+      "process": [
+        "User inputs shipment details for perishable goods",
+        "System recognizes perishable nature and adjusts criteria weights",
+        "TOPSIS engine evaluates forwarders with balanced emphasis on time and cost",
+        "Predictor module assesses historical performance with perishable goods",
+        "System generates ranked list of forwarders suitable for perishable transport"
+      ],
+      "expectedOutputs": {
+        "recommendedForwarder": "FastCargo",
+        "justification": "FastCargo offers a good balance of delivery speed (12 days) and cost ($1350) with sufficient reliability (0.88) for perishable goods",
+        "alternativeOptions": [
+          {
+            "name": "ExpressShip",
+            "advantage": "Faster delivery time, reducing spoilage risk",
+            "disadvantage": "Significantly higher cost"
+          },
+          {
+            "name": "AfricaLogistics",
+            "advantage": "Experience with temperature-controlled shipments",
+            "disadvantage": "Slightly longer delivery time than FastCargo"
+          }
+        ]
+      }
+    }
+  ]
+}
+
