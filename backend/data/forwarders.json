@@ -1,0 +1,128 @@
+[
+  {
+    "id": "f1",
+    "name": "AfricaLogistics",
+    "description": "Pan-African logistics provider with extensive network",
+    "country": "Kenya",
+    "region": "East Africa",
+    "routes": [
+      {
+        "origin": "Kenya",
+        "destination": "DR Congo",
+        "cost": 1200,
+        "time": 14,
+        "reliability": 0.85,
+        "tracking": true
+      },
+      {
+        "origin": "Kenya",
+        "destination": "Ethiopia",
+        "cost": 950,
+        "time": 10,
+        "reliability": 0.88,
+        "tracking": true
+      }
+    ]
+  },
+  {
+    "id": "f2",
+    "name": "GlobalFreight",
+    "description": "International freight forwarder with African presence",
+    "country": "South Africa",
+    "region": "Southern Africa",
+    "routes": [
+      {
+        "origin": "Kenya",
+        "destination": "DR Congo",
+        "cost": 950,
+        "time": 18,
+        "reliability": 0.78,
+        "tracking": false
+      },
+      {
+        "origin": "South Africa",
+        "destination": "Nigeria",
+        "cost": 1350,
+        "time": 16,
+        "reliability": 0.8,
+        "tracking": false
+      }
+    ]
+  },
+  {
+    "id": "f3",
+    "name": "ExpressShip",
+    "description": "Premium express logistics provider",
+    "country": "Nigeria",
+    "region": "West Africa",
+    "routes": [
+      {
+        "origin": "Kenya",
+        "destination": "DR Congo",
+        "cost": 1450,
+        "time": 10,
+        "reliability": 0.92,
+        "tracking": true
+      },
+      {
+        "origin": "Nigeria",
+        "destination": "Ghana",
+        "cost": 850,
+        "time": 8,
+        "reliability": 0.94,
+        "tracking": true
+      }
+    ]
+  },
+  {
+    "id": "f4",
+    "name": "TransAfrica",
+    "description": "Specialized in cross-continental African logistics",
+    "country": "Morocco",
+    "region": "North Africa",
+    "routes": [
+      {
+        "origin": "Kenya",
+        "destination": "DR Congo",
+        "cost": 1100,
+        "time": 15,
+        "reliability": 0.82,
+        "tracking": true
+      },
+      {
+        "origin": "Morocco",
+        "destination": "Egypt",
+        "cost": 980,
+        "time": 12,
+        "reliability": 0.85,
+        "tracking": true
+      }
+    ]
+  },
+  {
+    "id": "f5",
+    "name": "FastCargo",
+    "description": "Fast and reliable cargo services",
+    "country": "Egypt",
+    "region": "North Africa",
+    "routes": [
+      {
+        "origin": "Kenya",
+        "destination": "DR Congo",
+        "cost": 1350,
+        "time": 12,
+        "reliability": 0.88,
+        "tracking": false
+      },
+      {
+        "origin": "Egypt",
+        "destination": "Ethiopia",
+        "cost": 1050,
+        "time": 9,
+        "reliability": 0.9,
+        "tracking": true
+      }
+    ]
+  }
+]
+

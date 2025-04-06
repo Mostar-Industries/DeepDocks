@@ -1,0 +1,34 @@
+{
+  "weight_adjustments": {
+    "cost": 1.0,
+    "time": 1.0,
+    "reliability": 1.1,
+    "tracking": 0.9
+  },
+  "uncertainty": 0.12,
+  "grey_delta": 0.18,
+  "forwarder_adjustments": {
+    "f1": 1.05,
+    "f2": 0.98,
+    "f3": 1.02,
+    "f4": 1.0,
+    "f5": 0.97
+  },
+  "route_adjustments": {
+    "Kenya-DR Congo": {
+      "time_factor": 1.1,
+      "cost_factor": 0.95
+    },
+    "Nigeria-Ghana": {
+      "time_factor": 0.9,
+      "cost_factor": 1.05
+    }
+  },
+  "metadata": {
+    "last_updated": "2025-04-05",
+    "version": "1.0.0",
+    "training_samples": 1250,
+    "accuracy": 0.92
+  }
+}
+

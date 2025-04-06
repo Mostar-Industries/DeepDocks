@@ -67,7 +67,8 @@
     "os": "latest",
     "axios": "latest",
     "crypto": "latest",
-    "@supabase/supabase-js": "latest"
+    "@supabase/supabase-js": "latest",
+    "https:": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",
